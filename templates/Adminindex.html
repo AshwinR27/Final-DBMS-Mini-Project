@@ -1,0 +1,28 @@
+{% extends "AdminBase.html" %}
+{% block content %}
+<div id="carouselFade" class="carousel slide carousel float-left" data-bs-ride="carousel" ="">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{url_for('static',filename='images/banner6.jpg')}}" class="d-block w-100" height="400px" >
+      </div>
+      <div class="carousel-item">
+        <img src="{{url_for('static',filename='images/banner4.jpg')}}" class="d-block w-100" height="400px">
+      </div>
+      <div class="carousel-item">
+        <img src="{{url_for('static',filename='images/banner5.jpg')}}" class="d-block w-100" height="400px">
+      </div>
+      <div class="carousel-item">
+        <img src="{{url_for('static',filename='images/banner4.jpg')}}" class="d-block w-100" height="400px">
+      </div>
+    </div>
+  </div>
+<style>
+    .carousel-inner{height: 400px !important;margin-top: 50px;border-top: 5px black solid;border-bottom: 5px black solid;}
+</style>
+{% endblock %}

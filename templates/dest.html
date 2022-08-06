@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/allbooking.css')}}">
+{% endblock %}
+{% block title %}Booking{% endblock %}
+
+{% block content %}
+<script>
+    classes = document.querySelector("#bookBtn").className;
+    classes += " active";
+    document.querySelector("#bookBtn").className = classes;
+  </script>
+<div class="container-fluid">
+    <!-- <img id="board" src="../static/images/board.png">
+    <h3 class="neonText">{{select}}</h3> 
+    <img id="board" src="../static/images/nar.png">-->
+    <marquee direction="right" id="book1">{{source}}</marquee>
+    <p id="to"style="font-size: 60px;">Where would you like us to take you?</p>
+    
+<form class="was-validated" action="{{ url_for('other') }}" method="POST" >
+
+    <div class="form-row">
+        <div class="form-group col-lg-12">
+            <h4 style="color: white;">Destination</h4>
+            <SELECT name="desti" class="form-control custom-select" required>
+                <option value="">Choose Destination</option>
+            {% for j in data1 %} 
+                <OPTION value={{j[0]}}>{{j[0]}}</OPTION>
+            {% endfor %}
+            </SELECT>
+            <div class="invalid-feedback">Select Proper Input</div>
+        </div><br>
+
+        <input id="srcbtn" class="btn btn-primary" type="submit" value="Submit">
+        <a href="{{ url_for('booking')}}" id="bckbtn" class="btn btn-outline-danger">Return to Source</a>
+    </div>
+</form>
+</div>
+
+{% endblock %}

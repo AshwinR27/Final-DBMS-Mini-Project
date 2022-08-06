@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+  
+{% block content %}
+<script>
+    classes = document.querySelector("#manageBookingBtn").className;
+    classes += " active";
+    document.querySelector("#manageBookingBtn").className = classes;
+</script>
+<div class="row" id="mainContainer"> 
+  <h1 class="title3">Your Booking History</h1> 
+  <div id="table" class="col-10 offset-1"  >
+    <table class="table table-dark table-striped">
+
+        <thead>
+            <tr>
+              <th scope="col">BOOKING ID</th>
+              <th scope="col">STATUS</th>
+              <th scope="col">SOURCE</th>
+              <th scope="col">DESTINATION</th>
+              <th scope="col">CAB REG. NO.</th>
+              <th scope="col">DRIVER ID</th>
+              <th scope="col">FARE</th>              
+            </tr>
+        </thead>
+    
+        <tbody>
+            {% for rowdata in rows %}
+            <tr>
+              <td>{{rowdata[0]}}</td>
+              <td>{{rowdata[6]}}</td>
+              <td>{{rowdata[2][0]}}</td>
+              <td>{{rowdata[2][1]}}</td>
+              <td>{{rowdata[3]}}</td>
+              <td>{{rowdata[4]}}</td>
+              <td>{{rowdata[5]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    
+    </table>
+  </div> 
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript">function myFunction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+  var x = document.getElementById("newpassword");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+  var x = document.getElementById("confirmpassword");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}</script>
+
+<style>
+  #mainContainer{background-color: #212529;margin-top: 30px; color: white;padding-left: 50px; border-bottom: 10px #4285F4 solid;}
+  input{border-radius: 8px;font-size: 1.2em;}
+  .title{color: white;font-weight: 700;margin-left: -50px;background-color: #4285F4;padding-top: 10px;
+     padding-left: 80px;border-top-right-radius: 50px;border-bottom-right-radius: 50px; width: 130%;height: 60px;
+     border: 2px white solid; border-left: 0px;margin-bottom: 60px;margin-top: 50px;} 
+  #submit{width: 90%;font-size: 1.2em;font-weight: 600;background-color: #4285F4;color: white;border: 2px white solid; margin-left: 10px; margin-bottom: 50px;}
+  #submit:hover{font-size: 1.3em;}
+  #show span{font-size: 0.4em !important;}
+
+  
+  #container2{margin-top: 30px;}
+  .container2-items img {margin-bottom: 20px; border-radius: 20px; margin-left: -10px; margin-top: 0px; border-bottom: 5px #4285F4 solid}
+  .container2-items{background-color: #21252963; color: black; border-radius: 20px; font-weight: 500;}
+  .container2-items1{background-color: #21252963; color: black; border-radius: 20px; margin-left: 65px;}
+  .title3{color: white;font-weight: 700;margin-left: -200px;background-color: #4285F4;padding-top: 20px;
+     padding-left: 20%;border-top-right-radius: 50px;border-bottom-right-radius: 50px; width: 80%;height: 100px;
+     border: 2px #212529 solid; border-left: 0px;margin-bottom: 60px;margin-top: 50px; font-size: 3em;font-style: italic;} 
+  #username{background-color: #212529;color: white; border: 0px #212529 solid;}
+
+  #table{margin-top: 0px; margin-bottom: 50px; margin-left: 80px; border-top: 5px #4285F4 solid; border-bottom: 5px #4285F4 solid;}
+  th{font-size: 1.4em;text-align: center;}
+  tr{text-align: center;}
+
+
+ </style>
+
+<h1 class="title2">Why Ride with GST Cabs ?</h1>
+<div class="row" id="container2">
+  <div class="col-3 offset-0 container2-items container2-items1">
+    <img src ="{{url_for('static',filename='images/login1.jpg')}}">
+  <h3 class="text-center">The Perfect Ride</h3><p class="text-center">The way to get through your everyday travel needs. Our Intercity taxis are available 24/7 and 
+  you can book and travel in an instant. With rides starting from as low as Rs. 10/km, you can choose 
+  from a wide range of options! 
+  </p>
+</div>
+
+<div class="col-3 offset-1 container2-items">
+  <img src ="{{url_for('static',filename='images/login2.jpg')}}">
+  <h3 class="text-center">Cabs for Every Pocket</h3><p class="text-center">
+From HatchBacks and Sedans to SUVs for special occasions, we have cabs to suit every pocket.<br>
+Now go cashless and travel easy. 
+Simply scan the QR code in the Cabs for easy UPI payments.</p>
+</div>
+
+<div class="col-3 offset-1 container2-items">            
+  <img src ="{{url_for('static',filename='images/login3.jpg')}}">
+  <h3 class="text-center">Secure and Safer Rides</h3>
+  <p class="text-center">Verified drivers and an emergency alert button ,are some of the features 
+  that we have in place to ensure you a safe travel experience.<br>A dedicated 24x7 customer
+  support team always at your service to help solve any problem</p>
+</div>
+</div>
+
+
+
+<div class="row" id="container2">
+  <div class="col-2"></div>
+  <div class="col-3 container2-items container2-items1">
+    <img src ="{{url_for('static',filename='images/login5.jpg')}}">
+  <h3 class="text-center">Your Safety First</h3><p class="text-center">Keep your loved ones informed about your travel routes or call emergency services when in need. 
+    All our driver-partners are background verified and trained to deliver only the best experience
+  </p>
+</div>
+
+
+<div class="col-3 offset-1 container2-items">            
+  <img src ="{{url_for('static',filename='images/login4.jpg')}}">
+  <h3 class="text-center">In Cab Entertainment</h3>
+  <p class="text-center">Play music, watch videos and a lot more with GST Play! Also stay connected even if you are travelling through poor network areas with our free wifi facility.
+
+  </p>
+</div>
+</div>
+
+
+<style>
+    .carousel-inner{height: 400px !important;margin-top: 50px;border-top: 10px #4285F4 solid;border-bottom: 10px #4285F4 solid;}
+    .carousel-item img{height: 400px !important;}
+    #container2{margin-top: 50px;}
+  .container2-items img {margin-bottom: 20px; border-radius: 20px; margin-left: -10px; margin-top: 0px; border-bottom: 5px #4285F4 solid}
+  .container2-items{background-color: #21252963; color: black; border-radius: 20px; font-weight: 500;}
+  .container2-items1{background-color: #21252963; color: black; border-radius: 20px; margin-left: 65px;}
+  .title2{color: white;font-weight: 700;margin-left: -50px;background-color: #3268c0;padding-top: 20px;
+     padding-left: 20%;border-top-right-radius: 50px;border-bottom-right-radius: 50px; width: 80%;height: 100px;
+     border: 2px #212529 solid; border-left: 0px;margin-bottom: 60px;margin-top: 50px; font-size: 3em;font-style: italic;} 
+</style>
+
+{% endblock %}

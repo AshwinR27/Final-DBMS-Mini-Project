@@ -1,0 +1,136 @@
+#bgimg{
+    width: 30px;
+    height: 40px; 
+    margin-top: 70px;
+    position: fixed;
+    padding:0px 0px 0px 0px;
+}
+
+#img{
+    width: 352px;
+    height: 632px; 
+    margin: 3%;
+    position: relative;
+    float: left;
+}
+
+#bckbtn{
+    position: absolute;
+    bottom: 40px;
+    right: 40px; 
+    width: 200px;
+    height: 60px;
+    font-size: 24px;
+    font-family: PT Sans;
+}
+
+#img2{
+    width: 100px;
+    height: 80px; 
+    top: 340px;
+    left: 159px;
+    position: absolute;
+    padding:0px 0px 0px 0px;
+
+}
+
+.row {
+    display: flex;
+    font-weight: 500;
+    font-size: 20px;
+        
+  }
+
+  #values{
+    font-weight: 400;
+    font-size: 18px;
+  }
+  
+  .column {
+    flex: 25%;
+  }
+
+.container{
+    border-radius: 50px;
+}
+
+div{
+    display: block;
+}
+#src{
+    position: absolute;
+    top: 485px;
+    left: 180px;
+    font-weight: 100;
+}
+
+#dest{
+    position: absolute;
+    top: 485px;
+    left: 363px;
+    font-weight: 100;
+}
+
+#dname{
+    position: absolute;
+    top: 182px;
+    left: 177px;
+    font-weight: 100;
+
+}
+
+#dph{
+    position: absolute;
+    top: 182px;
+    left: 359px;
+    font-weight: 100;
+
+}
+
+#name{
+    position: absolute;
+    top: 337px;
+    left: 320px;
+    font-weight: 100;
+
+}
+
+#ph{
+    position: absolute;
+    top: 395px;
+    left: 330px;
+    font-weight: 100;
+
+}
+
+#fare{
+    position: absolute;
+    top: 570px;
+    left: 310px;
+    font-weight: 700;
+    font-size: 30px;
+
+}
+
+#reg{
+    position: absolute;
+    top: 240px;
+    left: 270px;
+    font-weight: 100;
+}
+
+
+ body{
+    background-color: #212121;
+    
+} 
+
+
+
+#title{
+    font-size: 30px;
+    font-weight: 500;
+    margin-left: 500px;
+    
+}
+

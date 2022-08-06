@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block content %}
+
+<script>
+  classes = document.querySelector("#homeBtn").className;
+  classes += " active";
+  document.querySelector("#homeBtn").className = classes;
+</script>
+
+  
+{% with messages = get_flashed_messages() %}  
+  {% if messages %}           
+    {% for message in messages %} 
+      <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        {{ message }}
+      </div>  
+    {% endfor %}  
+  {% endif %}  
+{% endwith %} 
+
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{url_for('static',filename='images/indexBanner1.jpg')}}" class="d-block w-100" >
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Cabs that keep you Safe</h5>
+        <p>All of our Drivers are fully vaccinated and undergo a 10 point security checks everyday.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{{url_for('static',filename='images/indexBanner2.jpg')}}" class="d-block w-100">
+      <div class="carousel-caption d-none d-md-block">
+        <h5><font color="4285F4">Kindly Follow COVID-19 Protocols</font></h5>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+
+<h1 class="title2">Why Ride with GST Cabs ?</h1>
+<div class="row" id="container2">
+  <div class="col-3 offset-0 container2-items container2-items1">
+    <img src ="{{url_for('static',filename='images/login1.jpg')}}">
+  <h3 class="text-center">The Perfect Ride</h3><p class="text-center">The way to get through your everyday travel needs. Our Intercity taxis are available 24/7 and 
+  you can book and travel in an instant. With rides starting from as low as Rs. 10/km, you can choose 
+  from a wide range of options! 
+  </p>
+</div>
+
+<div class="col-3 offset-1 container2-items">
+  <img src ="{{url_for('static',filename='images/login2.jpg')}}">
+  <h3 class="text-center">Cabs for Every Pocket</h3><p class="text-center">
+From HatchBacks and Sedans to SUVs for special occasions, we have cabs to suit every pocket.<br>
+Now go cashless and travel easy. 
+Simply scan the QR code in the Cabs for easy UPI payments.</p>
+</div>
+
+<div class="col-3 offset-1 container2-items">            
+  <img src ="{{url_for('static',filename='images/login3.jpg')}}">
+  <h3 class="text-center">Secure and Safer Rides</h3>
+  <p class="text-center">Verified drivers and an emergency alert button ,are some of the features 
+  that we have in place to ensure you a safe travel experience.<br>A dedicated 24x7 customer
+  support team always at your service to help solve any problem</p>
+</div>
+</div>
+
+
+
+<div class="row" id="container2">
+  <div class="col-2"></div>
+  <div class="col-3 container2-items container2-items1">
+    <img src ="{{url_for('static',filename='images/login5.jpg')}}">
+  <h3 class="text-center">Your Safety First</h3><p class="text-center">Keep your loved ones informed about your travel routes or call emergency services when in need. 
+    All our driver-partners are background verified and trained to deliver only the best experience
+  </p>
+</div>
+
+
+<div class="col-3 offset-1 container2-items">            
+  <img src ="{{url_for('static',filename='images/login4.jpg')}}">
+  <h3 class="text-center">In Cab Entertainment</h3>
+  <p class="text-center">Play music, watch videos and a lot more with GST Play! Also stay connected even if you are travelling through poor network areas with our free wifi facility.
+
+  </p>
+</div>
+</div>
+
+
+<style>
+    .carousel-inner{height: 400px !important;margin-top: 50px;border-top: 10px #4285F4 solid;border-bottom: 10px #4285F4 solid;}
+    .carousel-item img{height: 400px !important;}
+    #container2{margin-top: 50px;}
+  .container2-items img {margin-bottom: 20px; border-radius: 20px; margin-left: -10px; margin-top: 0px; border-bottom: 5px #4285F4 solid}
+  .container2-items{background-color: #21252963; color: black; border-radius: 20px; font-weight: 500;}
+  .container2-items1{background-color: #21252963; color: black; border-radius: 20px; margin-left: 65px;}
+  .title2{color: white;font-weight: 700;margin-left: -50px;background-color: #3268c0;padding-top: 20px;
+     padding-left: 20%;border-top-right-radius: 50px;border-bottom-right-radius: 50px; width: 80%;height: 100px;
+     border: 2px #212529 solid; border-left: 0px;margin-bottom: 60px;margin-top: 50px; font-size: 3em;font-style: italic;} 
+</style>
+
+{% endblock %}

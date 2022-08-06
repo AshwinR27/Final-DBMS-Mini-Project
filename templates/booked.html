@@ -1,0 +1,84 @@
+{% extends "base1.html" %}
+{% block head %}
+<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/booked.css')}}">
+{% endblock %}
+{% block title %}Booking{% endblock %}
+
+{% block content %}
+<script>
+    classes = document.querySelector("#myBookingBtn").className;
+    classes += " active";
+    document.querySelector("#myBookingBtn").className = classes;
+</script>
+<div class="container"style="background-color: white;padding-bottom:30px; ">
+    
+   <img id ="img" src="../static/images/ticket.png">
+    <img id ="img2" src="../static/images/dp.png">
+    
+    <div class="row" style="margin-left: 500px;padding-top: 100px;">
+     <div style="font-weight: 700;
+     font-size: 30px; margin-bottom: 20px;background-color: #7373e0; color:white">Booking Details</div>
+        <div class="col-lg-4">Driver Name</div>
+        <div class="col-lg-4">Driver Phone</div>
+    </div>
+    
+    
+    
+    <p id="src">{{source}}</p>
+    <p id="dest">{{desti}}</p>
+    {% for j in dat %}
+    <p id="fare">{{j[0]}}/-</p>
+    {% endfor %}
+
+    {% for j in udat %}
+    <p id="name">{{j[0]}}</p>
+    <p id="ph">{{j[1]}}</p>
+    {% endfor %}
+
+    {% for j in ddat %}
+    <p id="dname">{{j[0]}}</p>
+    <div class="row" id="values" style="margin-left: 500px;">
+           <div class="col-lg-4">{{j[0]}}</div>
+           <div class="col-lg-4">{{j[1]}}</div>
+       </div>
+    
+    <p id="dph">{{j[1]}}</p>
+    {% endfor %}
+
+    <div class="row" style="margin-left: 500px;padding-top: 20px;">
+        <div class="col-lg-4">Car Registration No.</div>
+        <div class="col-lg-4">Car Type</div>
+    </div>
+
+    {% for j in rdat %}
+    <div class="row" id="values" style="margin-left: 500px;">
+        <div class="col-lg-4">{{j[0]}}</div>
+        <div class="col-lg-4">{{type}}</div>
+    </div>
+
+    <p id="reg">{{j[0]}}</p>
+    {% endfor %}   
+
+    <div class="row" style="margin-left: 500px; padding-top: 20px;">
+        <div class="col-lg-3">Source</div>
+        <div class="col-lg-3">Destination</div>
+        <div class="col-lg-3">Distance</div>
+        <div class="col-lg-3">Time</div>
+    </div>
+
+    {% for j in redat %}
+    <div class="row" id="values" style="margin-left: 500px;">
+        <div class="col-lg-3">{{source}}</div>
+        <div class="col-lg-3">{{desti}}</div>
+        <div class="col-lg-3">{{j[2]}}</div>
+        <div class="col-lg-3">{{j[3]}}</div>
+    </div>
+    {% endfor %}
+    
+
+    <div id = "title" style="font-size: xx-large; margin-top: 60px;"><marquee style="color: #7171e0;" width="700px" direction="right" behavior="alternate">Your Cab has been Booked!</marquee></div><br>
+    <a href="{{ url_for('deletebooking')}}" id="bckbtn" class="btn btn-outline-danger">Cancel Booking</a>    
+</div>
+
+
+{% endblock %}

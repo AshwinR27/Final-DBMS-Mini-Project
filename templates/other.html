@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/allbooking.css')}}">
+{% endblock %}
+{% block title %}Booking{% endblock %}
+
+{% block content %}
+<script>
+  classes = document.querySelector("#bookBtn").className;
+  classes += " active";
+  document.querySelector("#bookBtn").className = classes;
+</script>
+<div>
+  <!-- <img id="board" src="../static/images/board.png">
+    <h3 class="neonText">{{dest}}</h3>-->
+    <!-- <h3 class="neonText">{{source}}</h3>  
+    <img id="board" src="../static/images/nar.png">-->
+    <marquee direction="right" id="book1">{{source}} to {{desti}}</marquee>
+    <p id="other"style="font-size: 60px;">Car Type</p>
+<form class="was-validated" action="{{ url_for('loading')}}" method="POST" >
+
+    <div class="form-group col-md-4" id="car">
+        
+        <div class="form-check form-check-inline" id="t1">
+          <input class="form-check-input" type="radio" id="type1" value="SUV" name="type" required>
+          <label class="form-check-label" for="type1"><h3 style="color: white;"><img src="../static/images/suv.png" style="width:180px;height:120px;">SUV</h3></label>
+        </div>
+        <div class="form-check form-check-inline" id="t2">
+            <input class="form-check-input" type="radio" id="type2" value="Sedan" name="type" required>
+            <label class="form-check-label" for="type2"><h3 style="color: white;"><img src="../static/images/sedan.png" style="width:180px;height:120px;">Sedan</h3></label>
+          </div>
+          <div class="form-check form-check-inline" id="t3">
+            <input class="form-check-input" type="radio" id="type3" value="Minivan" name="type" required>
+            <label class="form-check-label" for="type3"><h3 style="color: white;"><img src="../static/images/minivan.png" style="width:180px;height:120px;">Minivan</h3></label>
+          </div>
+        <div class="form-check form-check-inline" id="t4">
+          <input class="form-check-input" type="radio" id="type4" value="Hatchback" name="type" required>
+          <label class="form-check-label" for="type4"><h3 style="color: white;"><img src="../static/images/hatchback.png" style="width:180px;height:120px;">Hatchback</h3></label>
+        </div>
+        <input type="radio" name="type" style="display:none;" required>
+        <div class="invalid-feedback" style="font-size: 20px;">
+          &nbsp;&nbsp;&nbsp; Please select an option.
+        </div>
+      </div><br><br>
+      <input id="srcbtn" class="btn btn-primary" type="submit" value="Submit">
+    
+
+      <!-- <form action="{{ url_for('loading')}}">
+      <input type="button" id="bckbtn" class="btn btn-outline-danger" value="Go Back">
+    </form> -->
+    <a href="{{ url_for('booking')}}" id="bckbtn" class="btn btn-outline-danger">Back to Source</a>
+  </form>
+      </div>
+
+{% endblock %}

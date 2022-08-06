@@ -1,0 +1,226 @@
+{% extends "AdminBase.html" %}
+  
+{% block content %}
+<script>
+    classes = document.querySelector("#manageDriversBtn").className;
+    classes += " active";
+    document.querySelector("#manageDriversBtn").className = classes;
+</script>
+<div class="row" id="mainContainer">
+  <div class="col-4">
+    <h2 class="title"> REPLACE AN EXISTING DRIVER </h2>
+    <form action="{{ url_for('ReplaceDriver') }}" method="POST" autocomplete="off" >
+    {{ form.csrf_token }} 
+
+    <fieldset class="form-field">
+      {{ form.driverId.label }}&ensp;{{ form.driverId }}        
+      {% if form.driverId.errors %}
+      {% for error in form.driverId.errors %}
+            <div class="errors">&nbsp;{{ error }}</div>
+            <style>
+              #driverId{border:2px red solid;}
+              .errors{color: rgba(255, 0, 0, 0.781);}
+            </style> 
+          {% endfor %}
+      {% endif %}
+      </fieldset>  
+
+    <div class="row" id="formDiv">
+      <div class="col-6">
+        
+
+          <br>
+
+        <fieldset class="form-field">
+          {{ form.name.label }}<br>
+          {{ form.name }}         
+          {% if form.name.errors %}
+          {% for error in form.name.errors %}
+          <div class="errors">&nbsp;{{ error }}</div>
+          <style>
+            #name{border:2px red solid;}
+            .errors{color: rgba(255, 0, 0, 0.781);}
+          </style> 
+        {% endfor %}
+          {% endif %}      
+          </fieldset>
+
+          <br>
+
+          <fieldset class="form-field">
+            {{ form.DL_no.label }}<br>
+            {{ form.DL_no }}         
+            {% if form.DL_no.errors %}
+            {% for error in form.DL_no.errors %}
+            <div class="errors">&nbsp;{{ error }}</div>
+            <style>
+              #DL_no{border:2px red solid;}
+              .errors{color: rgba(255, 0, 0, 0.781);}
+            </style> 
+          {% endfor %}
+            {% endif %}
+            </fieldset>
+          
+      
+      </div>
+
+      
+
+      <div class="col-5">
+
+      
+
+      <br>
+
+
+
+      <fieldset class="form-field">
+        {{ form.dph_no.label }}<br>
+        {{ form.dph_no }}         
+        {% if form.dph_no.errors %}
+        {% for error in form.dph_no.errors %}
+              <div class="errors">&nbsp;{{ error }}</div>
+              <style>
+                #dph_no{border:2px red solid;}
+                .errors{color: rgba(255, 0, 0, 0.781);}
+              </style> 
+            {% endfor %}
+        {% endif %}
+        </fieldset>
+         
+            <br>
+
+            <fieldset class="form-field">
+              {{ form.age.label }}<br>
+              {{ form.age }}                     
+              {% if form.age.errors %}
+              {% for error in form.age.errors %}
+            <div class="errors">&nbsp;{{ error }}</div>
+            <style>
+              #age{border:2px red solid;}
+              .errors{color: rgba(255, 0, 0, 0.781);}
+            </style> 
+          {% endfor %}
+              {% endif %}
+              </fieldset>
+
+
+      
+
+
+      <br><br>      
+      </div>
+      {{ form.submit }}
+    </div>
+  </form>
+  </div> 
+  <div id="table" class="col-7 offset-1"  >
+    <table class="table table-dark table-striped">
+
+        <thead>
+            <tr>
+              <th scope="col">DRIVER ID</th>
+              <th scope="col">DRIVER NAME</th>
+              <th scope="col">DL NUMBER</th>
+              <th scope="col">PHONE NUMBER</th>
+              <th scope="col">AGE</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            {% for rowdata in rows %}
+            <tr>
+              <td>{{rowdata[0]}}</td>
+              <td>{{rowdata[1]}}</td>
+              <td>{{rowdata[2]}}</td>
+              <td>{{rowdata[3]}}</td>
+              <td>{{rowdata[4]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    
+    </table>
+  </div> 
+</div> 
+<h1 class="title2">Why work with GST Cabs ?</h1>
+<div class="row" id="container2">
+  <div class="col-3 offset-0 container2-items container2-items1">
+    <img src ="{{url_for('static',filename='images/login1.jpg')}}">
+  <h3 class="text-center">The Perfect Ride</h3><p class="text-center">The way to get through your everyday travel needs. Our Intercity taxis are available 24/7 and 
+  you can book and travel in an instant. With rides starting from as low as Rs. 10/km, you can choose 
+  from a wide range of options! 
+  </p>
+</div>
+
+<div class="col-3 offset-1 container2-items">
+  <img src ="{{url_for('static',filename='images/login2.jpg')}}">
+  <h3 class="text-center">Cabs for Every Pocket</h3><p class="text-center">
+From HatchBacks and Sedans to SUVs for special occasions, we have cabs to suit every pocket.<br>
+Now go cashless and travel easy. 
+Simply scan the QR code in the Cabs for easy UPI payments.</p>
+</div>
+
+<div class="col-3 offset-1 container2-items">            
+  <img src ="{{url_for('static',filename='images/login3.jpg')}}">
+  <h3 class="text-center">Secure and Safer Rides</h3>
+  <p class="text-center">Verified drivers and an emergency alert button ,are some of the features 
+  that we have in place to ensure you a safe travel experience.<br>A dedicated 24x7 customer
+  support team always at your service to help solve any problem</p>
+</div>
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript">function myFunction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+  var x = document.getElementById("newpassword");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+  var x = document.getElementById("confirmpassword");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}</script>
+
+<style>
+  #mainContainer{background-color: #212529;margin-top: 30px; color: white;padding-left: 50px; border-bottom: 10px #4285F4 solid;}
+  input{border-radius: 8px;font-size: 1.2em;}
+  .title{color: white;font-weight: 700;margin-left: -50px;background-color: #4285F4;padding-top: 10px;
+     padding-left: 80px;border-top-right-radius: 50px;border-bottom-right-radius: 50px; width: 130%;height: 60px;
+     border: 2px white solid; border-left: 0px;margin-bottom: 60px;margin-top: 50px;} 
+  #submit{width: 90%;font-size: 1.2em;font-weight: 600;background-color: #4285F4;color: white;border: 2px white solid; margin-left: 10px; margin-bottom: 50px;}
+  #submit:hover{font-size: 1.3em;}
+  #show span{font-size: 0.4em !important;}
+
+  
+  #container2{margin-top: 30px;}
+  .container2-items img {margin-bottom: 20px; border-radius: 20px; margin-left: -10px; margin-top: 0px; border-bottom: 5px #4285F4 solid}
+  .container2-items{background-color: #21252963; color: black; border-radius: 20px; font-weight: 500;}
+  .container2-items1{background-color: #21252963; color: black; border-radius: 20px; margin-left: 65px;}
+  .title2{color: white;font-weight: 700;margin-left: -50px;background-color: #4285F4;padding-top: 20px;
+     padding-left: 20%;border-top-right-radius: 50px;border-bottom-right-radius: 50px; width: 80%;height: 100px;
+     border: 2px #212529 solid; border-left: 0px;margin-bottom: 60px;margin-top: 50px; font-size: 3em;font-style: italic;} 
+  #username{background-color: #212529;color: white; border: 0px #212529 solid;}
+
+  #table{margin-top: 80px; margin-left: 100px;}
+  th{font-size: 1.4em;text-align: center;}
+  tr{text-align: center;}
+
+
+</style>
+
+{% endblock %}

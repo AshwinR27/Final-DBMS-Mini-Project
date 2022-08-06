@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+         rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+         crossorigin="anonymous">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css' rel='stylesheet'>
+        <title>{% block title %}{% endblock %}</title>
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/Adminindex"><img src="{{url_for('static',filename='images/logo12.png')}}" align="left" /></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="homeBtn" aria-current="page" href="/Adminindex">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id= "myAccountBtn" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      My Account
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="/ChangePasswordAdmin">Edit Profile / Change Password </a></li>
+                      {% if adminid != 101 %}
+                      <li><a class="dropdown-item" href="/DeleteAccountAdmin">Delete Account</a></li>
+                      {% endif %}
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="addAdminBtn" href="/AddAdmin">Add Admins</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="manageDriversBtn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Manage Drivers
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="/ViewDrivers">View All Drivers</a></li>
+                      <li><a class="dropdown-item" href="/ReplaceDriver">Replace Drivers</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="manageBookingBtn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Manage Booking
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="/ViewAll">All Bookings</a></li>
+                      <li><a class="dropdown-item" href="/ViewActive">Active Bookings</a></li>
+                      <li><a class="dropdown-item" href="/ViewCancelled">Cancelled Bookings</a></li>
+                      <li><a class="dropdown-item" href="/ViewCompleted">Completed Bookings</a></li>
+                      <li><a class="dropdown-item" href="/ChangeStatus">Change Booking Status</a></li>
+                    </ul>
+                  </li>
+                  <li id="logoutBtn" class="nav-item">
+                    <a class="nav-link fa fa-power-off" href="/AdminLogin">&nbsp;Log Out</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          {% with messages = get_flashed_messages() %}  
+  {% if messages %}           
+    {% for message in messages %} 
+      <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        {{ message }}
+      </div>  
+    {% endfor %}  
+  {% endif %}  
+{% endwith %} 
+
+<script>
+  var classes = document.querySelector(".nav-link").className;
+  classes = classes.replace(new RegExp("active", "g"), "");
+  document.querySelector(".nav-link").className = classes;
+</script>
+        {% block content %}
+        {% endblock %}
+
+<h1 class="title2">What working with GST means for you?</h1>
+<div class="row" id="container2">
+  <div class="col-3 offset-0 container2-items container2-items1">
+    <img src ="{{url_for('static',filename='images/login1.jpg')}}">
+  <h3 class="text-center">The Perfect Ride</h3><p class="text-center">The way to get through your everyday travel needs. Our Intercity taxis are available 24/7 and 
+  you can book and travel in an instant. With rides starting from as low as Rs. 10/km, you can choose 
+  from a wide range of options! 
+  </p>
+</div>
+
+<div class="col-3 offset-1 container2-items">
+  <img src ="{{url_for('static',filename='images/login2.jpg')}}">
+  <h3 class="text-center">Cabs for Every Pocket</h3><p class="text-center">
+From HatchBacks and Sedans to SUVs for special occasions, we have cabs to suit every pocket.<br>
+Now go cashless and travel easy. 
+Simply scan the QR code in the Cabs for easy UPI payments.</p>
+</div>
+
+<div class="col-3 offset-1 container2-items">            
+  <img src ="{{url_for('static',filename='images/login3.jpg')}}">
+  <h3 class="text-center">Secure and Safer Rides</h3>
+  <p class="text-center">Verified drivers and an emergency alert button ,are some of the features 
+  that we have in place to ensure you a safe travel experience.<br>A dedicated 24x7 customer
+  support team always at your service to help solve any problem</p>
+</div>
+</div>
+
+
+
+<div class="row" id="container2">
+  <div class="col-2"></div>
+  <div class="col-3 container2-items container2-items1">
+    <img src ="{{url_for('static',filename='images/login5.jpg')}}">
+  <h3 class="text-center">Your Safety First</h3><p class="text-center">Keep your loved ones informed about your travel routes or call emergency services when in need. 
+    All our driver-partners are background verified and trained to deliver only the best experience
+  </p>
+</div>
+
+
+<div class="col-3 offset-1 container2-items">            
+  <img src ="{{url_for('static',filename='images/login4.jpg')}}">
+  <h3 class="text-center">In Cab Entertainment</h3>
+  <p class="text-center">Play music, watch videos and a lot more with GST Play! Also stay connected even if you are travelling through poor network areas with our free wifi facility.
+
+  </p>
+</div>
+</div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+         crossorigin="anonymous"></script>
+       
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-1">
+        </div>
+
+        <div class="col-2">
+          <h5 class="footerTitle">Go to Section...</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="/Adminindex" class="nav-link p-0">Home</a></li>
+            <li class="nav-item mb-2"><a href="/AddAdmin" class="nav-link p-0">Add Admin</a></li>
+            <li class="nav-item mb-2"><a href="/ReplaceDriver" class="nav-link p-0">Replace Drivers</a></li>
+            <li class="nav-item mb-2"><a href="/ChangePasswordAdmin" class="nav-link p-0">Edit Profile</a></li>
+            <li class="nav-item mb-2"><a href="/ChangeStatus" class="nav-link p-0">Change Booking Status</a></li>
+          </ul>
+        </div>
+
+        <div class="col-3">
+          <h5 class="footerTitle">Contact Us At...</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><i class="bi bi-headset"></i>&ensp;0824-123456 / 0824-123457 / 0824-123458</li>
+            <li class="nav-item mb-2"><i class="bi bi-whatsapp"></i>&ensp;+91 1234567890 / +91 1234509876</li>
+            <li class="nav-item mb-2"><i class="bi bi-envelope-check-fill"></i>&ensp;CustomerCare@GST.org/reserve@GST.org</li>
+            <li class="nav-item mb-2"><i class="bi bi-printer-fill"></i>&ensp;0824-123321 / 0824-567890</li>              
+            <li class="nav-item mb-2"></li>
+          </ul>
+        </div>
+  
+        <div class="col-4 offset-2">            
+            <ul class="list-unstyled d-flex">
+              <li class="ms-3"><img id="playStore" src="{{url_for('static',filename='images/play1.jpg')}}" align="right" /></li>
+              <li class="ms-3"><img src="{{url_for('static',filename='images/play2.jpg')}}" align="right" /></a></li>
+            </ul>
+            <br>
+            <h5 class="text-muted"><i class="bi bi-twitter"> GST_my_Ride</i>&emsp;<i class="bi bi-facebook"> GST.my.Ride</i><br><i class="bi bi-instagram"> GST_my_Ride</i></h5>
+            <p id="copyRight">© 2021 GoodServiceTaxi, Inc. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>      
+  </body>
+  
+  <style>
+    footer{position: relative;align-content: center;width: 100%;background-color: #212529;margin-top: 100px; color: white !important;padding-left: 50px;
+      margin-right: 5px; margin-bottom: -50px;border-top: 5px #4285F4 solid;}
+    .list-unstyled{color: white;}
+    .list-unstyled li img{border-radius: 10px; margin-top: 5px; margin-right: 20px;}
+    #footerBottom{border-top: 5px #4285F4 solid; width: 96%;}
+    #playStore{margin-left: -20px;}
+    #copyRight{padding-top: 50px; margin-bottom: -40px; margin-left: -400px;}
+    .nav-link{color: white !important;}
+    .footerTitle{color:#4285F4}
+    .navbar{height: 80px;font-size: 1.3em; border-bottom: 5px black solid;}
+    .navbar li{margin-left: 30px;}
+    .nav-link:hover, .nav-link:focus{color: #4285F4 !important;}
+    .nav-item .active{color:#4285F4 !important;font-weight: 600; font-size: 1.1em;}
+    #logoutBtn{margin-top: 5px;position: absolute;right: 50px;}
+    #logoutBtn A:hover{color: rgba(255, 0, 0, 0.582) !important;}
+    #container2{margin-top: 50px;}
+  .container2-items img {margin-bottom: 20px; border-radius: 20px; margin-left: -10px; margin-top: 0px; border-bottom: 5px #4285F4 solid}
+  .container2-items{background-color: #21252963; color: black; border-radius: 20px; font-weight: 500;}
+  .container2-items1{background-color: #21252963; color: black; border-radius: 20px; margin-left: 65px;}
+  .title2{color: white;font-weight: 700;margin-left: -50px;background-color: #3268c0;padding-top: 20px;
+     padding-left: 10%;border-top-right-radius: 50px;border-bottom-right-radius: 50px; width: 80%;height: 100px;
+     border: 2px #212529 solid; border-left: 0px;margin-bottom: 60px;margin-top: 50px; font-size: 3em;font-style: italic;} 
+
+     .alert {
+  padding: 20px;
+  background-color: #4285F4; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 32px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+</style>
+</html>

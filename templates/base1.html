@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+         rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+         crossorigin="anonymous">
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+        <title>{% block title %}{% endblock %}</title>
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/index"><img src="{{url_for('static',filename='images/logo12.png')}}" align="left" /></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="homeBtn"aria-current="page" href="/index">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="bookBtn" href="/booking">Book Now</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="myBookingBtn" href="/mybooking">My Bookings</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="myAccountBtn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      My Account
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="/EditProfile">Edit Profile</a></li>
+                      <li><a class="dropdown-item" href="/ChangePassword">Change Password</a></li>
+                      <li><a class="dropdown-item" href="/DeleteAccount">Delete Account</a></li>
+                    </ul>
+                  </li>
+                  <!--<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="aboutUsBtn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      About Us
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">Our Motto</a></li>
+                      <li><a class="dropdown-item" href="#">Terms and Conditons</a></li>
+                    </ul>
+                  </li>-->
+                  <li id="logoutBtn" class="nav-item">
+                    <a class="nav-link fa fa-power-off" href="/login">&nbsp;Log Out</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <script>
+            var classes = document.querySelector(".nav-link").className;
+            classes = classes.replace(new RegExp("active", "g"), "");
+            document.querySelector(".nav-link").className = classes;
+        </script>
+        {% block content %}
+        {% endblock %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+         crossorigin="anonymous"></script>
+            
+  </body>
+  
+  <style>
+    footer{position: relative;align-content: center;width: 100%;background-color: #212529;margin-top: 100px; color: white !important;padding-left: 50px;
+      margin-right: 5px; margin-bottom: -50px;border-top: 5px #4285F4 solid;}
+    .list-unstyled{color: white;}
+    .list-unstyled li img{border-radius: 10px; margin-top: 5px; margin-right: 20px;}
+    #footerBottom{border-top: 5px #4285F4 solid; width: 96%;}
+    #playStore{margin-left: -20px;}
+    #copyRight{padding-top: 50px; margin-bottom: -40px; margin-left: -400px;}
+    .nav-link{color: white !important;}
+    .footerTitle{color:#4285F4}
+    .navbar{height: 80px;font-size: 1.3em; border-bottom: 5px black solid;}
+    .navbar li{margin-left: 30px;}
+    .nav-link:hover, .nav-link:focus{color: #4285F4 !important;}
+    .nav-item .active{color:#4285F4 !important;font-weight: 600; font-size: 1.1em;}
+    #logoutBtn{margin-top: 5px;position: absolute;right: 50px;}
+    #logoutBtn A:hover{color: rgba(255, 0, 0, 0.582) !important}
+    
+    .alert {
+  padding: 20px;
+  background-color: #4285F4; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 32px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+</style>
+
+</html>

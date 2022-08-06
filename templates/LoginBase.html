@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+         rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+         crossorigin="anonymous">
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+        <title>{% block title %}{% endblock %}</title>
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/login"><img src="{{url_for('static',filename='images/logo12.png')}}" align="left" /></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+
+              {% block navbar %}                                
+              {% endblock %}    
+              
+              
+            </div>
+          </nav>
+          {% with messages = get_flashed_messages() %}  
+  {% if messages %}           
+    {% for message in messages %} 
+      <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        {{ message }}
+      </div>  
+    {% endfor %}  
+  {% endif %}  
+{% endwith %} 
+          {% block content %}
+        {% endblock %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+         crossorigin="anonymous"></script>
+        <style>
+          .navbar{height: 80px;font-size: 1.3em; border-bottom: 5px black solid;}
+          .navbar li{margin-left: 30px;}
+          .nav-link:hover, .nav-link:focus{color: #4285F4 !important;}
+          .nav-item .active{color:#4285F4 !important;font-weight: 600;}
+          #logoutBtn{margin-top: 5px;position: absolute;right: 50px;}
+          #logoutBtn a{color: rgba(255, 0, 0, 0.774);}
+          .navbar-nav{position: absolute;right: 80px;}
+      </style>  
+      <footer class="py-5">
+        <div class="row">
+          <div class="col-1">
+          </div>
+
+          <div class="col-2">
+            <h5 class="footerTitle">Go to Section...</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="/CreateAccount" class="nav-link p-0">Create Account</a></li>
+              <li class="nav-item mb-2"><a href="/AdminLogin" class="nav-link p-0">Admin Login</a></li>
+            </ul>
+          </div>
+
+          <div class="col-3">
+            <h5 class="footerTitle">Contact Us At...</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><i class="bi bi-headset"></i>&ensp;0824-123456 / 0824-123457 / 0824-123458</li>
+              <li class="nav-item mb-2"><i class="bi bi-whatsapp"></i>&ensp;+91 1234567890 / +91 1234509876</li>
+              <li class="nav-item mb-2"><i class="bi bi-envelope-check-fill"></i>&ensp;CustomerCare@GST.org/reserve@GST.org</li>
+              <li class="nav-item mb-2"><i class="bi bi-printer-fill"></i>&ensp;0824-123321 / 0824-567890</li>              
+              <li class="nav-item mb-2"></li>
+            </ul>
+          </div>
+    
+          <div class="col-4 offset-2">            
+              <ul class="list-unstyled d-flex">
+                <li class="ms-3"><img id="playStore" src="{{url_for('static',filename='images/play1.jpg')}}" align="right" /></li>
+                <li class="ms-3"><img src="{{url_for('static',filename='images/play2.jpg')}}" align="right" /></a></li>
+              </ul>
+              <br>
+              <h5 class="text-muted"><i class="bi bi-twitter"> GST_my_Ride</i>&emsp;<i class="bi bi-facebook"> GST.my.Ride</i><br><i class="bi bi-instagram"> GST_my_Ride</i></h5>
+              <p id="copyRight">© 2021 GoodServiceTaxi, Inc. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>      
+    </body>
+    
+    <style>
+      footer{position: relative;align-content: center;width: 100%;background-color: #212529;margin-top: 100px; color: white !important;padding-left: 50px;
+        margin-right: 5px; margin-bottom: -50px;border-top: 5px #4285F4 solid;}
+      .list-unstyled{color: white;}
+      .list-unstyled li img{border-radius: 10px; margin-top: 5px; margin-right: 20px;}
+      #footerBottom{border-top: 5px #4285F4 solid; width: 96%;}
+      #playStore{margin-left: -20px;}
+      #copyRight{padding-top: 50px; margin-bottom: -40px; margin-left: -400px;}
+      .nav-link{color: white !important;}
+      .footerTitle{color:#4285F4}
+      
+      .alert {
+  padding: 20px;
+  background-color: #4285F4; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 32px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
+    </style>
+</html>
